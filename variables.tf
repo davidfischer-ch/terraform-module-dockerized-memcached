@@ -14,7 +14,7 @@ variable "enabled" {
 
 variable "image_id" {
   type        = string
-  description = "Redis image's ID."
+  description = "Memcached image's ID."
 }
 
 # Settings -----------------------------------------------------------------------------------------
