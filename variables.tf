@@ -17,7 +17,7 @@ variable "image_id" {
   description = "Memcached image's ID."
 }
 
-# Settings -----------------------------------------------------------------------------------------
+# Configuration ------------------------------------------------------------------------------------
 
 variable "connection_limit" {
   type        = number
