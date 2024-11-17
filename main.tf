@@ -16,7 +16,12 @@ resource "docker_container" "server" {
 
   # shm_size = 256 # MB
 
-  command = ["memcached"]
+  command = [
+    "memcached",
+    "--conn-limit=${var.connection_limit}",
+    "--memory-limit=${var.memory_limit}",
+    "--threads=${var.threads}"
+  ]
 
   env = []
 

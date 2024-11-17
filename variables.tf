@@ -17,6 +17,26 @@ variable "image_id" {
   description = "Redis image's ID."
 }
 
+# Settings -----------------------------------------------------------------------------------------
+
+variable "connection_limit" {
+  type        = number
+  default     = 1024
+  description = "Connection limit (default is 1024)."
+}
+
+variable "memory_limit" {
+  type        = number
+  default     = 64
+  description = "Memory limit (default is 64 MB)."
+}
+
+variable "threads" {
+  type        = number
+  default     = 4
+  description = "Number of threads (default is 4)."
+}
+
 # Networking ---------------------------------------------------------------------------------------
 
 variable "hosts" {
