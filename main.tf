@@ -1,11 +1,5 @@
 resource "docker_container" "server" {
 
-  lifecycle {
-    replace_triggered_by = [
-      local_sensitive_file.main_config
-    ]
-  }
-
   image = var.image_id
   name  = var.identifier
 
