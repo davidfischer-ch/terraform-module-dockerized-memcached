@@ -30,6 +30,7 @@ resource "docker_container" "server" {
   hostname = var.identifier
 
   networks_advanced {
-    name = var.network_id
+    aliases = var.network_aliases
+    name    = var.network_id
   }
 }

@@ -51,6 +51,12 @@ variable "hosts" {
   description = "Add entries to container hosts file."
 }
 
+variable "network_aliases" {
+  type        = set(string)
+  default     = []
+  description = "Network aliases of the container in the specific network"
+}
+
 variable "network_id" {
   type        = string
   description = "Attach the containers to given network."
