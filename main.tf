@@ -33,4 +33,6 @@ resource "docker_container" "server" {
     aliases = var.network_aliases
     name    = var.network_id
   }
+
+  network_mode = "bridge"
 }
