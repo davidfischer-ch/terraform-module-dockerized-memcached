@@ -10,7 +10,7 @@ Manage Memcached server.
 
 ```hcl
 module "cache" {
-  source = "git::https://github.com/davidfischer-ch/terraform-module-dockerized-memcached.git?ref=1.0.0"
+  source = "git::https://github.com/davidfischer-ch/terraform-module-dockerized-memcached.git?ref=1.0.1"
 
   identifier     = "my-app-cache"
   enabled        = true
@@ -20,7 +20,7 @@ module "cache" {
   connection_limit = 1024
   threads          = 4
 
-  hosts           = module.fisch3r_net.lan_hosts
+  hosts           = { "myserver" = "10.0.0.1" }
   network_id      = docker_network.app.id
   network_aliases = ["memcached"]
 }
