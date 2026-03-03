@@ -8,6 +8,8 @@ Manage Memcached server.
 
 ## Usage
 
+See [examples/default](examples/default) for a complete working configuration.
+
 ```hcl
 module "cache" {
   source = "git::https://github.com/davidfischer-ch/terraform-module-dockerized-memcached.git?ref=1.0.1"
