@@ -36,6 +36,11 @@ module "cache" {
 | `enabled` | `bool` | — | Start or stop the container. |
 | `wait` | `bool` | `false` | Wait for the container to reach a healthy state after creation. |
 | `image_id` | `string` | — | [Memcached](https://hub.docker.com/_/memcached/tags) Docker image's ID. |
+| `app_uid` | `number` | `11211` | UID of the user running the container and owning the data directories. |
+| `app_gid` | `number` | `11211` | GID of the user running the container and owning the data directories. |
+| `privileged` | `bool` | `false` | Run the container in privileged mode. |
+| `cap_add` | `set(string)` | `[]` | Linux capabilities to add to the container. |
+| `cap_drop` | `set(string)` | `[]` | Linux capabilities to drop from the container. |
 | `connection_limit` | `number` | `1024` | Connection limit. |
 | `memory_limit` | `number` | `64` | Memory limit in MB. |
 | `threads` | `number` | `4` | Number of threads. |
