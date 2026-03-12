@@ -23,6 +23,38 @@ variable "image_id" {
   description = "Memcached image's ID."
 }
 
+# Process ------------------------------------------------------------------------------------------
+
+variable "app_uid" {
+  type        = number
+  default     = 11211
+  description = "UID of the user running the container."
+}
+
+variable "app_gid" {
+  type        = number
+  default     = 11211
+  description = "GID of the user running the container."
+}
+
+variable "privileged" {
+  type        = bool
+  default     = false
+  description = "Run the container in privileged mode."
+}
+
+variable "cap_add" {
+  type        = set(string)
+  default     = []
+  description = "Linux capabilities to add to the container."
+}
+
+variable "cap_drop" {
+  type        = set(string)
+  default     = []
+  description = "Linux capabilities to drop from the container."
+}
+
 # Configuration ------------------------------------------------------------------------------------
 
 variable "connection_limit" {
