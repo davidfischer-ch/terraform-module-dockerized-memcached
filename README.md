@@ -12,16 +12,20 @@ See [examples/default](examples/default) for a complete working configuration.
 
 ```hcl
 module "cache" {
-  source = "git::https://github.com/davidfischer-ch/terraform-module-dockerized-memcached.git?ref=1.1.1"
+  source = "git::https://github.com/davidfischer-ch/terraform-module-dockerized-memcached.git?ref=1.2.0"
 
   identifier   = "my-app-cache"
   image_id     = docker_image.memcached.image_id
 
-  memory_limit = 256
+  # Networking
 
   hosts           = { "myserver" = "10.0.0.1" }
   network_id      = docker_network.app.id
   network_aliases = ["memcached"]
+
+  # Configuration
+
+  memory_limit = 256
 }
 ```
 

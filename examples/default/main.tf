@@ -9,7 +9,7 @@ resource "docker_network" "app" {
 }
 
 module "cache" {
-  source = "git::https://github.com/davidfischer-ch/terraform-module-dockerized-memcached.git?ref=1.1.0"
+  source = "git::https://github.com/davidfischer-ch/terraform-module-dockerized-memcached.git?ref=1.2.0"
 
   identifier = "my-app-cache"
   image_id   = docker_image.memcached.image_id
