@@ -8,6 +8,14 @@ resource "docker_container" "server" {
   restart  = "always"
   wait     = var.wait
 
+  healthcheck {
+    test         = ["CMD-SHELL", "timeout 2 bash -c '</dev/tcp/127.0.0.1/${var.port}'"]
+    interval     = "10s"
+    timeout      = "5s"
+    retries      = 3
+    start_period = "5s"
+  }
+
   privileged = var.privileged
 
   dynamic "capabilities" {
