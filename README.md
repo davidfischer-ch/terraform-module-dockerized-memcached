@@ -12,7 +12,7 @@ See [examples/default](examples/default) for a complete working configuration.
 
 ```hcl
 module "cache" {
-  source = "git::https://github.com/davidfischer-ch/terraform-module-dockerized-memcached.git?ref=1.1.0"
+  source = "git::https://github.com/davidfischer-ch/terraform-module-dockerized-memcached.git?ref=1.1.1"
 
   identifier   = "my-app-cache"
   image_id     = docker_image.memcached.image_id
