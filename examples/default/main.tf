@@ -14,8 +14,12 @@ module "cache" {
   identifier = "my-app-cache"
   image_id   = docker_image.memcached.image_id
 
-  memory_limit = 256
+  # Networking
 
   network_id      = docker_network.app.id
   network_aliases = ["memcached"]
+
+  # Configuration
+
+  memory_limit = 256
 }

@@ -38,13 +38,13 @@ module "cache" {
 | `privileged` | `bool` | `false` | Run the container in privileged mode. |
 | `cap_add` | `set(string)` | `[]` | Linux capabilities to add to the container. |
 | `cap_drop` | `set(string)` | `[]` | Linux capabilities to drop from the container. |
-| `connection_limit` | `number` | `1024` | Connection limit. |
-| `memory_limit` | `number` | `64` | Memory limit in MB. |
-| `threads` | `number` | `4` | Number of threads. |
 | `hosts` | `map(string)` | `{}` | Extra `/etc/hosts` entries for the container. |
 | `network_aliases` | `set(string)` | `[]` | Network aliases for the container. |
 | `network_id` | `string` | — | Docker network to attach to. |
 | `port` | `number` | `11211` | Memcached port (changing not yet implemented). |
+| `connection_limit` | `number` | `1024` | Connection limit. |
+| `memory_limit` | `number` | `64` | Memory limit in MB. |
+| `threads` | `number` | `4` | Number of threads. |
 
 ## Outputs
 

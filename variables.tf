@@ -57,6 +57,36 @@ variable "cap_drop" {
   default     = []
 }
 
+# Networking ---------------------------------------------------------------------------------------
+
+variable "hosts" {
+  type        = map(string)
+  description = "Add entries to container hosts file."
+  default     = {}
+}
+
+variable "network_aliases" {
+  type        = set(string)
+  description = "Network aliases of the container in the specific network"
+  default     = []
+}
+
+variable "network_id" {
+  type        = string
+  description = "Attach the containers to given network."
+}
+
+variable "port" {
+  type        = number
+  description = "Bind the Memcached port."
+  default     = 11211
+
+  validation {
+    condition     = var.port == 11211
+    error_message = "Having `port` different than 11211 is not yet implemented."
+  }
+}
+
 # Configuration ------------------------------------------------------------------------------------
 
 variable "connection_limit" {
@@ -89,35 +119,5 @@ variable "threads" {
   validation {
     condition     = var.threads >= 1
     error_message = "Argument `threads` must be at least 1."
-  }
-}
-
-# Networking ---------------------------------------------------------------------------------------
-
-variable "hosts" {
-  type        = map(string)
-  description = "Add entries to container hosts file."
-  default     = {}
-}
-
-variable "network_aliases" {
-  type        = set(string)
-  description = "Network aliases of the container in the specific network"
-  default     = []
-}
-
-variable "network_id" {
-  type        = string
-  description = "Attach the containers to given network."
-}
-
-variable "port" {
-  type        = number
-  description = "Bind the Memcached port."
-  default     = 11211
-
-  validation {
-    condition     = var.port == 11211
-    error_message = "Having `port` different than 11211 is not yet implemented."
   }
 }
