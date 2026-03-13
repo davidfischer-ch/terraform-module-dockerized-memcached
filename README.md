@@ -14,13 +14,10 @@ See [examples/default](examples/default) for a complete working configuration.
 module "cache" {
   source = "git::https://github.com/davidfischer-ch/terraform-module-dockerized-memcached.git?ref=1.1.0"
 
-  identifier     = "my-app-cache"
-  enabled        = true
-  image_id       = docker_image.memcached.image_id
+  identifier   = "my-app-cache"
+  image_id     = docker_image.memcached.image_id
 
-  memory_limit     = 256
-  connection_limit = 1024
-  threads          = 4
+  memory_limit = 256
 
   hosts           = { "myserver" = "10.0.0.1" }
   network_id      = docker_network.app.id
