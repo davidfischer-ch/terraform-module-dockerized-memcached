@@ -12,7 +12,7 @@ See [examples/default](examples/default) for a complete working configuration.
 
 ```hcl
 module "cache" {
-  source = "git::https://github.com/davidfischer-ch/terraform-module-dockerized-memcached.git?ref=1.0.1"
+  source = "git::https://github.com/davidfischer-ch/terraform-module-dockerized-memcached.git?ref=1.1.0"
 
   identifier     = "my-app-cache"
   enabled        = true
@@ -36,8 +36,8 @@ module "cache" {
 | `enabled` | `bool` | — | Start or stop the container. |
 | `wait` | `bool` | `false` | Wait for the container to reach a healthy state after creation. |
 | `image_id` | `string` | — | [Memcached](https://hub.docker.com/_/memcached/tags) Docker image's ID. |
-| `app_uid` | `number` | `11211` | UID of the user running the container and owning the data directories. |
-| `app_gid` | `number` | `11211` | GID of the user running the container and owning the data directories. |
+| `app_uid` | `number` | `11211` | UID of the user running the container. |
+| `app_gid` | `number` | `11211` | GID of the user running the container. |
 | `privileged` | `bool` | `false` | Run the container in privileged mode. |
 | `cap_add` | `set(string)` | `[]` | Linux capabilities to add to the container. |
 | `cap_drop` | `set(string)` | `[]` | Linux capabilities to drop from the container. |
