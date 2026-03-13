@@ -1,6 +1,7 @@
 variable "identifier" {
   type        = string
   description = "Identifier (must be unique, used to name resources)."
+
   validation {
     condition     = regex("^[a-z]+(-[a-z0-9]+)*$", var.identifier) != null
     error_message = "Argument `identifier` must match regex ^[a-z]+(-[a-z0-9]+)*$."
@@ -9,14 +10,14 @@ variable "identifier" {
 
 variable "enabled" {
   type        = bool
-  default     = true
   description = "Toggle the containers (started or stopped)."
+  default     = true
 }
 
 variable "wait" {
   type        = bool
-  default     = true
   description = "Wait for the container to reach an healthy state after creation."
+  default     = true
 }
 
 variable "image_id" {
@@ -28,66 +29,81 @@ variable "image_id" {
 
 variable "app_uid" {
   type        = number
-  default     = 11211
   description = "UID of the user running the container."
+  default     = 11211
 }
 
 variable "app_gid" {
   type        = number
-  default     = 11211
   description = "GID of the user running the container."
+  default     = 11211
 }
 
 variable "privileged" {
   type        = bool
-  default     = false
   description = "Run the container in privileged mode."
+  default     = false
 }
 
 variable "cap_add" {
   type        = set(string)
-  default     = []
   description = "Linux capabilities to add to the container."
+  default     = []
 }
 
 variable "cap_drop" {
   type        = set(string)
-  default     = []
   description = "Linux capabilities to drop from the container."
+  default     = []
 }
 
 # Configuration ------------------------------------------------------------------------------------
 
 variable "connection_limit" {
   type        = number
-  default     = 1024
   description = "Connection limit (default is 1024)."
+  default     = 1024
+
+  validation {
+    condition     = var.connection_limit >= 1
+    error_message = "Argument `connection_limit` must be at least 1."
+  }
 }
 
 variable "memory_limit" {
   type        = number
-  default     = 64
   description = "Memory limit (default is 64 MB)."
+  default     = 64
+
+  validation {
+    condition     = var.memory_limit >= 64
+    error_message = "Argument `memory_limit` must be at least 64 (MB)."
+  }
 }
 
 variable "threads" {
   type        = number
-  default     = 4
   description = "Number of threads (default is 4)."
+  default     = 4
+
+  validation {
+    condition     = var.threads >= 1
+    error_message = "Argument `threads` must be at least 1."
+  }
 }
 
 # Networking ---------------------------------------------------------------------------------------
 
 variable "hosts" {
   type        = map(string)
-  default     = {}
   description = "Add entries to container hosts file."
+  default     = {}
 }
 
 variable "network_aliases" {
   type        = set(string)
-  default     = []
   description = "Network aliases of the container in the specific network"
+  default     = []
 }
 
 variable "network_id" {
@@ -96,8 +112,9 @@ variable "network_id" {
 }
 
 variable "port" {
-  type    = number
-  default = 11211
+  type        = number
+  description = "Bind the Memcached port."
+  default     = 11211
 
   validation {
     condition     = var.port == 11211
