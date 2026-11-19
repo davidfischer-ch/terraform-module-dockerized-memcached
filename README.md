@@ -42,8 +42,8 @@ module "cache" {
 | `app_uid` | `number` | `11211` | UID of the user running the container. |
 | `app_gid` | `number` | `11211` | GID of the user running the container. |
 | `privileged` | `bool` | `false` | Run the container in privileged mode. |
-| `cap_add` | `set(string)` | `[]` | Linux capabilities to add to the container. |
-| `cap_drop` | `set(string)` | `[]` | Linux capabilities to drop from the container. |
+| `cap_add` | `set(string)` | `[]` | Linux capabilities to add to the container, `ALL` for every one. |
+| `cap_drop` | `set(string)` | `[]` | Linux capabilities to drop from the container, `ALL` for every one. |
 | `hosts` | `map(string)` | `{}` | Extra `/etc/hosts` entries for the container. |
 | `network_aliases` | `set(string)` | `[]` | Network aliases for the container. |
 | `network_id` | `string` | — | Docker network to attach to. |
@@ -65,6 +65,20 @@ module "cache" {
 
 * Terraform >= 1.17
 * [kreuzwerker/docker](https://github.com/kreuzwerker/terraform-provider-docker) >= 4.7.0
+
+
+## Tests
+
+```bash
+terraform init -backend=false
+terraform test
+```
+
+`terraform test` needs Terraform >= 1.17, the module's own floor. The tests plan against a mocked
+Docker provider: they assert the capabilities passed to Docker and the outputs, and run no image.
+They run on every push, in the GitHub workflow (with the newest Docker provider and its minimum) and
+in the GitLab pipeline.
+
 
 ## References
 
