@@ -64,7 +64,7 @@ module "cache" {
 ## Requirements
 
 * Terraform >= 1.17
-* [kreuzwerker/docker](https://github.com/kreuzwerker/terraform-provider-docker) >= 3.0.2
+* [kreuzwerker/docker](https://github.com/kreuzwerker/terraform-provider-docker) >= 4.7.0
 
 ## References
 
