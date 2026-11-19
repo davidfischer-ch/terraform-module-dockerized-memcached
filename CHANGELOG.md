@@ -1,5 +1,33 @@
 # Changelog
 
+
+## Release v1.2.1 (2026-11-19)
+
+Diff: https://github.com/davidfischer-ch/terraform-module-dockerized-memcached/compare/1.2.0...1.2.1
+
+### Features
+
+CI:
+
+* Add CI: formatting, validation and the tests, in the GitHub workflow (with the newest Docker provider and its minimum) and in the GitLab pipeline
+
+### Fix and enhancements
+
+Server:
+
+* Pass `ALL` in `cap_add` and `cap_drop` to Docker as its wildcard instead of `CAP_ALL`
+
+Requirements:
+
+* Require Terraform 1.17
+* Require the Docker provider 4.7.0
+
+Docs:
+
+* Document `ALL` in `cap_add` and `cap_drop`
+* Point the README and the examples at this release
+
+
 ## Release v1.2.0 (2026-03-14)
 
 ### Minor compatibility breaks
