@@ -6,6 +6,7 @@ Manage Memcached server.
 * No persistent storage (in-memory cache)
 * Configurable connection limit, memory, and threads
 
+
 ## Usage
 
 See [examples/default](examples/default) for a complete working configuration.
@@ -29,6 +30,7 @@ module "cache" {
 }
 ```
 
+
 ## Variables
 
 | Name | Type | Default | Description |
@@ -50,12 +52,14 @@ module "cache" {
 | `memory_limit` | `number` | `64` | Memory limit in MB. |
 | `threads` | `number` | `4` | Number of threads. |
 
+
 ## Outputs
 
 | Name | Description |
 |------|-------------|
 | `host` | Container hostname. |
 | `port` | Memcached port. |
+
 
 ## Requirements
 
